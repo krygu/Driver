@@ -7,25 +7,29 @@ using System.Drawing;
 
 namespace Driver
 {
-    class Obstacle : MovingObject
+    public class Car : MovingObject
     {
-
-        public Obstacle(Point point, Color color)
+        private int shift = -5;
+        public Car()
         {
-            Point = point;
-            Color = color;
+            Point = new Point(50, 300);
+            Color = Color.Red;
         }
 
         public override void paint()
         {
-            Size size = new Size(50, 50);
+            Size size = new Size(80, 30);
             Rectangle rectangle = new Rectangle(Point, size);
             Field.DrawRectangle(new Pen(Color), rectangle);
         }
 
         public override void move()
         {
-            Point = new Point(Point.X - 5, Point.Y);
+            if (Point.Y < 5)
+                shift = 5;
+            else if (Point.Y > 329)
+                shift = -5;
+            Point = new Point(Point.X, Point.Y + shift);
         }
     }
 }
