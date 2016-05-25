@@ -13,6 +13,6 @@ namespace Driver
         public Color Color { get; set; }
         public Point Point { get; set; }
         public abstract void paint();
-        public abstract void move();
+        public abstract void move(int xShift);
     }
 }

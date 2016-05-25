@@ -10,22 +10,23 @@ namespace Driver
     class Obstacle : MovingObject
     {
 
-        public Obstacle(Point point, Color color)
+        public Obstacle(Point point, Color color, Graphics canva)
         {
             Point = point;
             Color = color;
+            Field = canva;
         }
 
         public override void paint()
         {
             Size size = new Size(50, 50);
             Rectangle rectangle = new Rectangle(Point, size);
-            Field.DrawRectangle(new Pen(Color), rectangle);
+            Field.FillRectangle(Brushes.Black, rectangle);
         }
 
-        public override void move()
+        public override void move(int xShift)
         {
-            Point = new Point(Point.X - 5, Point.Y);
+            Point = new Point(Point.X + xShift, Point.Y);
         }
     }
 }
