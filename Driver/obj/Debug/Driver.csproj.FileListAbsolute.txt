@@ -6,3 +6,4 @@ C:\Users\Tomasz Kryg\Desktop\Driver\Driver\obj\Debug\Driver.Properties.Resources
 C:\Users\Tomasz Kryg\Desktop\Driver\Driver\obj\Debug\Driver.csproj.GenerateResource.Cache
 C:\Users\Tomasz Kryg\Desktop\Driver\Driver\obj\Debug\Driver.exe
 C:\Users\Tomasz Kryg\Desktop\Driver\Driver\obj\Debug\Driver.pdb
+C:\Users\Tomasz Kryg\Desktop\Driver\Driver\obj\Debug\Driver.Form1.resources
