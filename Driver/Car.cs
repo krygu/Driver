@@ -10,10 +10,12 @@ namespace Driver
     public class Car : MovingObject
     {
         private int _shift = -5; // oznacza o ile ma przesuwac sie auto
-        private int _fieldHeight;
-        private int _fieldWidth;
+        private int _fieldHeight = 0;
+        private int _fieldWidth = 0;
         private int _carHeight = 40;
         private int _carWidth = 80;
+        private int _topBound;
+        private int _bottomBound;
 
         public Car(Graphics canva)
         {
@@ -22,6 +24,8 @@ namespace Driver
             Field = canva;
             _fieldHeight = (int)canva.VisibleClipBounds.Height;
             _fieldWidth = (int)canva.VisibleClipBounds.Width;
+            _topBound = 0;
+            _bottomBound = _fieldHeight - _carHeight;
         }
 
         public override void paint()
@@ -31,13 +35,12 @@ namespace Driver
             Field.FillRectangle(Brushes.Red, rectangle);
         }
 
-        public override void move(int xShift)
+        public override void move(int yShift)
         {
-            if (Point.Y < 0)
-                _shift = 5;
-            else if (Point.Y > _fieldHeight - _carHeight)
-                _shift = -5;
-            Point = new Point(Point.X, Point.Y + _shift);
+            if (Point.Y >= 0 && Point.Y <= _fieldHeight - _carHeight)
+                Point = new Point(Point.X, Point.Y + yShift);
+            if(Point.Y < _topBound) Point = new Point(Point.X, 0);
+            if(Point.Y > _bottomBound) Point = new Point(Point.X, _fieldHeight - _carHeight);
         }
     }
 }
